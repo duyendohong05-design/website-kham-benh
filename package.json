@@ -1,0 +1,11 @@
+{
+  "name": "hospital-website-project",
+  "version": "1.0.0",
+  "description": "Project chính chứa giao diện và server backend.",
+  "scripts": {
+    "start": "cd server && npm start",
+    "install-backend": "cd server && npm install"
+  },
+  "author": "",
+  "license": "ISC"
+}

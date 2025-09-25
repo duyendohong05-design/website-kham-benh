@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tin tức & Bài viết y khoa</title>
+   <link rel="stylesheet" href="style.css">
+  <style>
+
+
+    /* Hero */
+    .hero {
+      background: url("https://img.freepik.com/free-photo/doctor-writing-medical-articles-hospital_1232-5432.jpg") no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+
+    .hero p {
+      font-size: 18px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    /* Article Grid */
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .article-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .article-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .article-card .info {
+      padding: 15px;
+    }
+
+    .article-card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: #0066cc;
+    }
+
+    .article-card p {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .btn-read {
+      display: inline-block;
+      padding: 8px 15px;
+      background: #0066cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .btn-read:hover {
+      background: #004d99;
+    }
+
+    /* Floating Buttons */
+    .floating-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .floating-buttons button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      font-size: 22px;
+      color: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .btn-call {
+      background: #28a745;
+    }
+
+    .btn-chat {
+      background: #ffc107;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+ <header>
+  <div class="top-header">
+     <img src="logo.jpg" alt="Logo DHTS">
+    <h1 class="hospital-name">       DHTS Healthcare</h1>
+    <p class="hospital-slogan">      Bệnh viện đa khoa - Vì sức khỏe nhân dân </p>
+    <img src ="download.png" class=" co">
+  </div>
+
+  <!-- Thanh menu -->
+  <nav class="navbar">
+    <ul class="menu">
+      <li><a href="giaodien.html">Trang chủ</a></li>
+      <li><a href="articles.html">Tin tức & Bài viết </a></li>
+      <li><a href="dichvu.html">Dịch vụ</a></li>
+      <li><a href="doctor.html">Đội ngũ bác sĩ</a></li>
+      <li><a href="equipment.html">Thiết bị</a></li>
+      <li><a href="booking.html">Đặt lịch khám</a></li>
+      
+      <li><a href="login.html">       Đăng nhập </a></li>
+    </ul>
+    <div class="search-box">
+      <input type="text" placeholder="Tìm kiếm..." />
+      <button>🔍</button>
+    </div>
+  </nav>
+</header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Kiến thức y khoa & Tin tức sức khỏe</h2>
+    <p>Cập nhật thường xuyên các bài viết y tế hữu ích cho cộng đồng</p>
+  </section>
+
+  <!-- Articles -->
+  <div class="container">
+    <div class="article-grid">
+
+      <div class="article-card">
+        <img src="https://img.freepik.com/free-photo/doctor-with-patient_1232-2345.jpg" alt="Bệnh tim mạch">
+        <div class="info">
+          <h3>Những dấu hiệu cảnh báo bệnh tim mạch</h3>
+          <p>Phát hiện sớm các triệu chứng như khó thở, đau ngực, mệt mỏi để phòng ngừa kịp thời...</p>
+          <a href="#" class="btn-read">Đọc tiếp</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="https://img.freepik.com/free-photo/modern-laboratory-equipment_1232-3345.jpg" alt="Ung thư sớm">
+        <div class="info">
+          <h3>Công nghệ mới trong tầm soát ung thư sớm</h3>
+          <p>Các phương pháp xét nghiệm hiện đại giúp phát hiện ung thư ngay từ giai đoạn đầu...</p>
+          <a href="#" class="btn-read">Đọc tiếp</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="https://img.freepik.com/free-photo/vaccine-research-lab_1232-4321.jpg" alt="Vắc xin mới">
+        <div class="info">
+          <h3>Những loại vắc xin cần tiêm phòng năm 2025</h3>
+          <p>Danh sách các loại vắc xin quan trọng bảo vệ sức khỏe cho trẻ em và người lớn...</p>
+          <a href="#" class="btn-read">Đọc tiếp</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <img src="https://img.freepik.com/free-photo/mental-health-therapy_1232-6789.jpg" alt="Sức khỏe tinh thần">
+        <div class="info">
+          <h3>Sức khỏe tinh thần sau đại dịch</h3>
+          <p>Cách chăm sóc và phục hồi tâm lý cho người bệnh sau khi trải qua COVID-19...</p>
+          <a href="#" class="btn-read">Đọc tiếp</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+ 
+
+</body>
+</html>

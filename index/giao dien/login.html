@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập bệnh nhân</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e6f2ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 350px;
+    }
+    .container h2 {
+      text-align: center;
+      color: #0059b3;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #003366;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #b3d1ff;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #3399ff;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #267acc;
+    }
+    .note {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 13px;
+      color: #666;
+    }
+    .note a {
+      color: #0059b3;
+      text-decoration: none;
+    }
+    .note a:hover {
+      text-decoration: underline;
+    }
+    .message {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+      color: green;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Đăng nhập</h2>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Nhập email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Mật khẩu</label>
+        <input type="password" id="password" placeholder="Nhập mật khẩu" required>
+      </div>
+      <button type="submit" class="btn">Đăng nhập</button>
+      <p class="note">Chưa có tài khoản? <a href="signup.html">Đăng ký</a></p>
+      <p class="note"><a href="giaodien.html">⬅ Quay lại trang chủ</a></p>
+      <p class="message" id="successMessage">Đăng nhập thành công! Đang chuyển hướng...</p>
+    </form>
+  </div>
+
+  <script>
+    // Xử lý sự kiện đăng nhập
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const msg = document.getElementById("successMessage");
+      msg.style.display = "block";
+
+      // Sau 2 giây chuyển về trang chủ
+      setTimeout(() => {
+        window.location.href = "giaodien.html";
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

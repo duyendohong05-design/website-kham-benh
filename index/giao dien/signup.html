@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng ký tài khoản bệnh nhân</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e6f2ff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 350px;
+    }
+
+    .container h2 {
+      text-align: center;
+      color: #0059b3;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #003366;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #b3d1ff;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .form-group input:focus {
+      border-color: #3399ff;
+      box-shadow: 0 0 6px rgba(51,153,255,0.4);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #3399ff;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #267acc;
+    }
+
+    .note {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 13px;
+      color: #666;
+    }
+
+    /* Thông báo */
+    .message {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+      color: green;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Đăng ký bệnh nhân</h2>
+    <form id="registerForm">
+      <div class="form-group">
+        <label for="fullname">Họ và tên</label>
+        <input type="text" id="fullname" placeholder="Nhập họ và tên" required>
+      </div>
+      <div class="form-group">
+        <label for="dob">Ngày sinh</label>
+        <input type="date" id="dob" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Nhập email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Số điện thoại</label>
+        <input type="tel" id="phone" placeholder="Nhập số điện thoại" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Mật khẩu</label>
+        <input type="password" id="password" placeholder="Nhập mật khẩu" required>
+      </div>
+      <button type="submit" class="btn">Đăng ký</button>
+      <p class="note">Bạn đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+      <p class="message" id="successMessage">Đăng ký thành công! Đang chuyển hướng...</p>
+    </form>
+  </div>
+
+  <script>
+    // Xử lý sự kiện submit form
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Ngăn tải lại trang
+
+      // Hiện thông báo
+      const msg = document.getElementById("successMessage");
+      msg.style.display = "block";
+
+      // Sau 2 giây chuyển sang trang đăng nhập
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đặt lịch khám - Bệnh viện Bạch Mai</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 font-sans"> 
+
+ <header>
+  <div class="top-header">
+     <img src="logo.jpg" alt="Logo DHTS">
+    <h1 class="hospital-name">       DHTS Healthcare</h1>
+    <p class="hospital-slogan">      Bệnh viện đa khoa - Vì sức khỏe nhân dân </p>
+    <img src ="download.png" class=" co">
+  </div>
+
+  <!-- Thanh menu -->
+  <nav class="navbar">
+    <ul class="menu">
+      <li><a href="giaodien.html">Trang chủ</a></li>
+       <li><a href="articles.html">Tin tức & Bài viết </a></li>
+      <li><a href="dichvu.html">Dịch vụ</a></li>
+      <li><a href="doctor.html">Đội ngũ bác sĩ</a></li>
+      <li><a href="equipment.html">Thiết bị</a></li>
+      <li><a href="#" onclick="goBooking()">Đặt lịch khám</a></li>
+
+      
+        <li id="authMenu"></li>
+    </ul>
+    <div class="search-box">
+      <input type="text" placeholder="Tìm kiếm..." />
+      <button>🔍</button>
+    </div>
+  </nav>
+</header>
+
+  <!-- Nội dung -->
+  <main class="max-w-6xl mx-auto my-8 p-6 bg-white shadow-lg rounded-xl">
+    <h1 class="text-3xl font-bold text-center text-blue-700 mb-8">Đặt lịch khám</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Form -->
+      <form id="appointmentForm" class="space-y-4">
+        <div>
+          <label class="block font-medium mb-1">Họ và tên</label>
+          <input type="text" id="name" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label class="block font-medium mb-1">Ngày sinh</label>
+          <input type="date" id="dob" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label class="block font-medium mb-1">Số điện thoại</label>
+          <input type="tel" id="phone" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label class="block font-medium mb-1">Email</label>
+          <input type="email" id="email" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label class="block font-medium mb-1">Chuyên khoa</label>
+          <select id="department" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+            <option value="">-- Chọn chuyên khoa --</option>
+            <option>Nội tổng hợp</option>
+            <option>Ngoại tổng hợp</option>
+            <option>Tim mạch</option>
+            <option>Thần kinh</option>
+            <option>Nhi</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-medium mb-1">Ngày khám</label>
+          <input type="date" id="date" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label class="block font-medium mb-1">Khung giờ</label>
+          <select id="time" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+            <option value="">-- Chọn giờ --</option>
+            <option>08:00 - 09:00</option>
+            <option>09:00 - 10:00</option>
+            <option>10:00 - 11:00</option>
+            <option>13:00 - 14:00</option>
+            <option>14:00 - 15:00</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+          Xác nhận đặt lịch
+        </button>
+      </form>
+
+      <!-- Lịch đã đặt -->
+      <div>
+        <h2 class="text-xl font-bold text-gray-700 mb-3">Danh sách lịch khám</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full border text-center rounded-lg overflow-hidden">
+            <thead class="bg-blue-600 text-white">
+              <tr>
+                <th class="px-3 py-2">Tên</th>
+                <th class="px-3 py-2">Ngày sinh</th>
+                <th class="px-3 py-2">SĐT</th>
+                <th class="px-3 py-2">Email</th>
+                <th class="px-3 py-2">Chuyên khoa</th>
+                <th class="px-3 py-2">Ngày khám</th>
+                <th class="px-3 py-2">Giờ</th>
+              </tr>
+            </thead>
+            <tbody id="appointmentList" class="divide-y"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Hiển thị login/logout
+    function renderAuthMenu() {
+      const authMenu = document.getElementById("authMenu");
+      const user = localStorage.getItem("currentUser");
+      if (user) {
+        authMenu.innerHTML = `
+          <span class="text-yellow-300">Xin chào, ${user}</span> |
+          <a href="#" onclick="logout()">Đăng xuất</a>
+        `;
+      } else {
+        authMenu.innerHTML = `<a href="login.html" class="hover:text-yellow-300">Đăng nhập</a>`;
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("currentUser");
+      renderAuthMenu();
+      alert("Bạn đã đăng xuất!");
+    }
+
+    function goBooking() {
+      const user = localStorage.getItem("currentUser");
+      if (user) {
+        window.location.href = "booking.html";
+      } else {
+        localStorage.setItem("redirectAfterLogin", "booking.html");
+        window.location.href = "login.html";
+      }
+    }
+
+    renderAuthMenu();
+
+    // Form đặt lịch
+    const form = document.getElementById('appointmentForm');
+    const list = document.getElementById('appointmentList');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Check đăng nhập
+      const user = localStorage.getItem("currentUser");
+      if (!user) {
+        alert("Bạn cần đăng nhập trước khi đặt lịch!");
+        return;
+      }
+
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td class="px-3 py-2">${document.getElementById('name').value}</td>
+        <td class="px-3 py-2">${document.getElementById('dob').value}</td>
+        <td class="px-3 py-2">${document.getElementById('phone').value}</td>
+        <td class="px-3 py-2">${document.getElementById('email').value}</td>
+        <td class="px-3 py-2">${document.getElementById('department').value}</td>
+        <td class="px-3 py-2">${document.getElementById('date').value}</td>
+        <td class="px-3 py-2">${document.getElementById('time').value}</td>
+      `;
+      list.appendChild(row);
+
+      form.reset();
+      alert("Đặt lịch thành công!");
+    });
+  </script>
+
+</body>
+</html>

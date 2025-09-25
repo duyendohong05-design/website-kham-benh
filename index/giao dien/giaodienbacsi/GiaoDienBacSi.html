@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảng điều khiển Bác sĩ - Healthcare</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f8f9fb;
+      color: #333;
+    }
+
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    u    aside {
+      width: 260px;
+      background: #fff;
+      border-right: 1px solid #ddd;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .doctor-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .doctor-info img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #fff;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+
+    .doctor-info .name {
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    nav ul li {
+      margin-bottom: 10px;
+    }
+
+    nav a {
+      display: block;
+      padding: 8px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: #f1f5f9;
+      color: #0066cc;
+    }
+
+    .sidebar-bottom {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .sidebar-bottom button {
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .btn-primary {
+      background: #0066cc;
+      color: white;
+    }
+
+    .btn-outline {
+      border: 1px solid #ccc;
+      color: #0066cc;
+      background: white;
+    }
+
+       main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .search-box {
+      position: relative;
+    }
+
+    .search-box input {
+      padding: 8px 35px 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 250px;
+    }
+
+    .search-box button {
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .card .label {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .card .value {
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 5px;
+      color: #0066cc;
+    }
+
+    
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+
+    .list, .detail, .notes {
+      background: white;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .list-item:last-child {
+      border-bottom: none;
+    }
+
+    .patient-info {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .patient-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .patient-actions button {
+      margin-left: 5px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .patient-actions .btn-primary {
+      border: none;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-family: inherit;
+      resize: vertical;
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside>
+      <div>
+        <div class="doctor-info">
+          <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80" alt="avatar">
+          <div>
+            <div class="name">BS. Hoàng Minh Đức</div>
+            <div class="spec">Sản - Phụ khoa</div>
+          </div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="#">Lịch khám</a></li>
+            <li><a href="#">Bệnh nhân</a></li>
+            <li><a href="#">Hồ sơ</a></li>
+            <li><a href="#">Kê đơn</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="sidebar-bottom">
+        Ca hôm nay: <b>08:00 - 12:00</b>
+        <div style="margin-top:10px; display:flex; gap:5px;">
+          <button class="btn-primary">Tạo phiếu khám</button>
+          <button class="btn-outline">Đăng xuất</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main>
+      <header>
+        <div>
+          <h1>Bảng điều khiển bác sĩ</h1>
+          <p style="font-size:14px; color:#666;">Tổng quan ca khám và bệnh nhân hôm nay</p>
+        </div>
+        <div class="search-box">
+          <input type="text" placeholder="Tìm bệnh nhân, mã khám...">
+          <button>🔍</button>
+        </div>
+      </header>
+
+      <!-- Cards -->
+      <div class="cards">
+        <div class="card">
+          <div class="label">Bệnh nhân chờ</div>
+          <div class="value">8</div>
+        </div>
+        <div class="card">
+          <div class="label">Đang khám</div>
+          <div class="value">2</div>
+        </div>
+        <div class="card">
+          <div class="label">Khám xong</div>
+          <div class="value">14</div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="content-grid">
+        <!-- Danh sách khám -->
+        <div class="list">
+          <h3>Danh sách khám</h3>
+          <div class="list-item">
+            <div class="patient-info">
+              <div class="patient-avatar">NT</div>
+              <div>
+                <b>Nguyễn Thị Bích</b><br>
+                <small>08:30 — 30 tuổi — Khám định kỳ</small>
+              </div>
+            </div>
+            <div class="patient-actions">
+              <button>Chi tiết</button>
+              <button class="btn-primary">Bắt đầu</button>
+            </div>
+          </div>
+
+          <div class="list-item">
+            <div class="patient-info">
+              <div class="patient-avatar">PT</div>
+              <div>
+                <b>Phan Tú Diệu</b><br>
+                <small>09:00 — 45 tuổi — Ho</small>
+              </div>
+            </div>
+            <div class="patient-actions">
+              <button>Chi tiết</button>
+              <button class="btn-primary" style="background:#ff9800;">Ưu tiên</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chi tiết bệnh nhân -->
+        <div class="detail">
+          <div class="patient-info" style="margin-bottom:10px;">
+            <div class="patient-avatar">NT</div>
+            <div>
+              <b>Nguyễn Thị Bích</b><br>
+              <small>Nữ, 30 tuổi</small>
+            </div>
+          </div>
+          <p><b>Triệu chứng:</b><br>Khám định kỳ — không có triệu chứng cấp tính</p>
+          <p><b>Tiền sử / Dị ứng:</b><br>Không có</p>
+          <div style="margin-top:10px; display:flex; gap:5px;">
+            <button class="btn-primary">Kê toa</button>
+            <button class="btn-outline">Ghi chú</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ghi chú -->
+      <div class="notes" style="margin-top:20px;">
+        <h3>Ghi chú nhanh</h3>
+        <textarea rows="3" placeholder="Ghi chú khám, hướng dẫn..."></textarea>
+        <div style="margin-top:10px; text-align:right;">
+          <button class="btn-primary">Lưu</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

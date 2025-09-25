@@ -1,0 +1,5 @@
+# File chứa các khóa bí mật và biến môi trường
+server/.env
+
+# Thư mục chứa các gói cài đặt (rất nặng và không cần chia sẻ)
+server/node_modules

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đội ngũ bác sĩ</title>
+   <link rel="stylesheet" href="style.css">
+  <style>
+  
+
+    .container {
+      display: flex;
+      margin: 20px;
+      gap: 20px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background: white;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .sidebar h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+
+    /* Main content */
+    .main {
+      flex: 1;
+    }
+
+    .search-box {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px 0 0 6px;
+    }
+
+    .search-box button {
+      background: #007bff;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 0 6px 6px 0;
+      cursor: pointer;
+    }
+
+    .doctors {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .doctor-card {
+      background: white;
+      border-radius: 10px;
+      text-align: center;
+      padding: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .doctor-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .doctor-card h4 {
+      margin: 10px 0 5px;
+    }
+
+    .doctor-card p {
+      color: #555;
+      font-size: 14px;
+    }
+
+    /* Floating buttons */
+    .floating-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .floating-buttons button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      font-size: 22px;
+      color: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .btn-call {
+      background: #28a745;
+    }
+
+    .btn-chat {
+      background: #ffc107;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+  <div class="top-header">
+     <img src="logo.jpg" alt="Logo DHTS">
+    <h1 class="hospital-name">       DHTS Healthcare</h1>
+    <p class="hospital-slogan">      Bệnh viện đa khoa - Vì sức khỏe nhân dân </p>
+    <img src ="download.png" class=" co">
+  </div>
+
+  <!-- Thanh menu -->
+  <nav class="navbar">
+    <ul class="menu">
+      <li><a href="giaodien.html">Trang chủ</a></li>
+      <li><a href="articles.html">Tin tức & Bài viết </a></li>
+      <li><a href="dichvu.html">Dịch vụ</a></li>
+      <li><a href="doctor.html">Đội ngũ bác sĩ</a></li>
+      <li><a href="equipment.html">Thiết bị</a></li>
+      <li><a href="booking.html">Đặt lịch khám</a></li>
+      
+      <li><a href="login.html">       Đăng nhập </a></li>
+    </ul>
+    <div class="search-box">
+      <input type="text" placeholder="Tìm kiếm..." />
+      <button>🔍</button>
+    </div>
+  </nav>
+</header>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h3>Khoa / Trung tâm</h3>
+      <ul>
+        <li>Trung tâm Cấp cứu A9</li>
+        <li>Khoa Tim mạch</li>
+        <li>Khoa Nhi</li>
+        <li>Khoa Ngoại tổng hợp</li>
+        <li>Khoa Chấn thương chỉnh hình</li>
+      </ul>
+    </div>
+
+    <!-- Main content -->
+    <div class="main">
+      <div class="search-box">
+        <input type="text" placeholder="Tìm kiếm bác sĩ...">
+        <button>Tìm kiếm</button>
+      </div>
+
+      <h2>Tất cả bác sĩ chuyên khoa</h2>
+      <div class="doctors">
+        <div class="doctor-card">
+          <img src="https://via.placeholder.com/220x250" alt="Bác sĩ">
+          <h4>BS. Nguyễn Văn A</h4>
+          <p>Chuyên khoa Tim mạch</p>
+        </div>
+        <div class="doctor-card">
+          <img src="https://via.placeholder.com/220x250" alt="Bác sĩ">
+          <h4>BS. Trần Thị B</h4>
+          <p>Chuyên khoa Nhi</p>
+        </div>
+        <div class="doctor-card">
+          <img src="https://via.placeholder.com/220x250" alt="Bác sĩ">
+          <h4>BS. Lê Văn C</h4>
+          <p>Chuyên khoa Ngoại</p>
+        </div>
+        <div class="doctor-card">
+          <img src="https://via.placeholder.com/220x250" alt="Bác sĩ">
+          <h4>BS. Phạm Thị D</h4>
+          <p>Chuyên khoa Chấn thương</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+
+</body>
+</html>

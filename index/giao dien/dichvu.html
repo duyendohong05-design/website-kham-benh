@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dịch vụ - DHTS Healthcare</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    
+  
+    /* Grid dịch vụ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px 10%;
+    }
+
+    .service-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .service-card i {
+      font-size: 40px;
+      color: #3399ff;
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      margin: 10px 0;
+      color: #0059b3;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: #444;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0059b3;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+ <header>
+  <div class="top-header">
+     <img src="logo.jpg" alt="Logo DHTS">
+    <h1 class="hospital-name">       DHTS Healthcare</h1>
+    <p class="hospital-slogan">      Bệnh viện đa khoa - Vì sức khỏe nhân dân </p>
+    <img src ="download.png" class=" co">
+  </div>
+
+  <!-- Thanh menu -->
+  <nav class="navbar">
+    <ul class="menu">
+      <li><a href="giaodien.html">Trang chủ</a></li>
+        <li><a href="articles.html">Tin tức & Bài viết </a></li>
+      <li><a href="dichvu.html">Dịch vụ</a></li>
+      <li><a href="doctor.html">Đội ngũ bác sĩ</a></li>
+      <li><a href="equipment.html">Thiết bị</a></li>
+      <li><a href="booking.html">Đặt lịch khám</a></li>
+      
+      <li><a href="login.html">       Đăng nhập </a></li>
+    </ul>
+    <div class="search-box">
+      <input type="text" placeholder="Tìm kiếm..." />
+      <button>🔍</button>
+    </div>
+  </nav>
+</header>
+
+
+ <!-- Banner -->
+<!-- Banner Dịch vụ -->
+
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Cột trái: Nội dung -->
+      <div class="col-md-6">
+        <h1 class="service-title">Dịch vụ y tế chất lượng cao</h1>
+        <p class="service-desc">
+          Với đội ngũ bác sĩ chuyên khoa hàng đầu, hệ thống thiết bị hiện đại và quy trình chăm sóc chuẩn quốc tế, 
+          chúng tôi mang đến giải pháp y tế toàn diện cho cộng đồng. 
+          Bệnh viện cam kết đem lại trải nghiệm khám chữa bệnh an toàn, nhanh chóng và tận tâm cho từng bệnh nhân.
+        </p>
+        <ul class="service-list">
+          <li>✔ Khám sức khỏe định kỳ & tầm soát bệnh</li>
+          <li>✔ Xét nghiệm & chẩn đoán hình ảnh hiện đại</li>
+          <li>✔ Điều trị nội khoa & ngoại khoa</li>
+          <li>✔ Phẫu thuật chuyên sâu, ít xâm lấn</li>
+          <li>✔ Dịch vụ cấp cứu 24/7</li>
+        </ul>
+        <a href="#dich-vu" class="btn-primary ">Khám phá dịch vụ</a>
+      </div>
+    </div>
+  
+    </div>
+
+
+    
+</section>
+
+<br>
+<br>
+
+  <!-- Danh sách dịch vụ -->
+  <section class="services-grid">
+    <div class="service-card">
+      <i class="fas fa-stethoscope"></i>
+      <h3>Khám tổng quát</h3>
+      <p>Gói khám sức khỏe định kỳ toàn diện cho cá nhân và doanh nghiệp.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-user-md"></i>
+      <h3>Khám chuyên khoa</h3>
+      <p>Khám chuyên sâu các lĩnh vực: tim mạch, hô hấp, tiêu hóa, thần kinh...</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-vials"></i>
+      <h3>Xét nghiệm</h3>
+      <p>Đầy đủ các xét nghiệm sinh hóa, huyết học, vi sinh, tầm soát ung thư.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-syringe"></i>
+      <h3>Tiêm chủng</h3>
+      <p>Dịch vụ tiêm chủng an toàn cho trẻ em và người lớn, nhiều loại vắc xin.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-laptop-medical"></i>
+      <h3>Tư vấn trực tuyến</h3>
+      <p>Kết nối với bác sĩ mọi lúc mọi nơi qua hệ thống chat và video call.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-ambulance"></i>
+      <h3>Cấp cứu 24/7</h3>
+      <p>Đội ngũ xe cấp cứu hiện đại, sẵn sàng hỗ trợ khẩn cấp mọi lúc.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 DHTS Healthcare | Liên hệ: 0868 686 868</p>
+  </footer>
+
+</body>
+</html>

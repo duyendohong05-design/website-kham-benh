@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DHTS Healthcare | Khám chữa bệnh</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reset */
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {font-family: Arial, sans-serif; line-height: 1.6; background: #f8f9fa;}
+
+   /* Header */
+.top-header {
+ display: flex;
+  padding: 15px 0;
+}
+
+.hospital-name {
+
+  font-size: 40px;
+  font-weight: bold;
+  color:#005fa3; /* Xanh đậm y tế */
+  margin: 0;
+}
+
+.hospital-slogan {
+ font-size: 26px;
+  font-family: 'Satisfy', cursive;
+  color: #ffb700;
+  margin-left: 40px;  
+    flex-grow: 1; /* slogan giãn ra giữa */
+
+}
+
+/* Thanh menu */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007acc; /* Xanh menu */
+  padding: 10px 40px;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin: 0 20px;
+}
+
+.menu li a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  transition: 0.3s;
+}
+
+.menu li a:hover {
+  color: #ffdd00; /* Vàng nhạt khi hover */
+}
+
+/* Ô tìm kiếm */
+.search-box {
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  padding: 6px 10px;
+  border-radius: 20px 0 0 20px;
+  border: none;
+  outline: none;
+}
+
+.search-box button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  background-color: aqua;
+  color: white;
+  cursor: pointer;
+}
+
+.search-box button:hover {
+  background-color:#007acc;
+}
+
+
+    /* Banner */
+    .hero-section {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    /* Vaccine section */
+    .vaccine-section {
+      padding: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #e6f2ff;
+    }
+    .vaccine-text-container {
+      flex: 1;
+      padding-right: 20px;
+    }
+    .vaccine-text-container h2 {color: #0059b3; margin-bottom: 15px;}
+    .vaccine-callout {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .callout-box {
+      background: #007acc;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    /* Services section */
+    .services-section {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 20px;
+      padding: 40px;
+      background: white;
+    }
+    .service-item {
+      background: #f0f8ff;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .service-item:hover {
+      background: #007acc;
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    /* Chat toggle button */
+    .chat-toggle-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #007acc;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+    .chat-toggle-button:hover {background: #005fa3;}
+
+    /* Chatbox */
+    .chatbox {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 320px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      display: none;
+      flex-direction: column;
+      z-index: 2000;
+    }
+    .chat-header {
+      background: #007acc;
+      color: white;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    .chat-messages {
+      max-height: 200px;
+      overflow-y: auto;
+      padding: 10px;
+      font-size: 14px;
+      border-bottom: 1px solid #ddd;
+    }
+    .chat-input {
+      display: flex;
+      padding: 10px;
+      gap: 5px;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .chat-input button {
+      background: #007acc;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .chat-input button:hover {background: #005fa3;}
+    .chat-contact {
+      padding: 10px;
+      font-size: 13px;
+      text-align: center;
+    }
+    .chat-contact a {color: #007acc; text-decoration: none;}
+    .chat-contact a:hover {text-decoration: underline;}
+    .top-header img {height: 65px;}
+    .co {
+  
+  margin-right: 80px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <!-- Header -->
+<header>
+  <div class="top-header">
+     <img src="logo.jpg" alt="Logo DHTS">
+    <h1 class="hospital-name">       DHTS Healthcare</h1>
+    <p class="hospital-slogan">      Bệnh viện đa khoa - Vì sức khỏe nhân dân </p>
+    <img src ="download.png" class=" co">
+  </div>
+
+  <!-- Thanh menu -->
+  <nav class="navbar">
+    <ul class="menu">
+      <li><a href="giaodien.html">Trang chủ</a></li>
+       <li><a href="articles.html">Tin tức & Bài viết </a></li>
+      <li><a href="dichvu.html">Dịch vụ</a></li>
+      <li><a href="doctor.html">Đội ngũ bác sĩ</a></li>
+      <li><a href="equipment.html">Thiết bị</a></li>
+      <li><a href="#" onclick="goBooking()">Đặt lịch khám</a></li>
+
+      
+        <li id="authMenu"></li>
+    </ul>
+    <div class="search-box">
+      <input type="text" placeholder="Tìm kiếm..." />
+      <button>🔍</button>
+    </div>
+  </nav>
+</header>
+
+
+  <!-- Banner -->
+  <section>
+    <img src="anh1.jpg" class="hero-section">
+  </section>
+
+  <!-- Vaccine -->
+  <section class="vaccine-section">
+    <div class="vaccine-text-container">
+      <h2>ĐƠN VỊ TƯ VẤN VÀ TIÊM CHỦNG VẮC XIN</h2>
+      <p>Thương hiệu DHTS - An toàn mọi đối tượng - An tâm với bệnh nền</p>
+    </div>
+    <div class="vaccine-callout">
+      <div class="callout-box">
+        <p>📞 Đăng ký tư vấn</p>
+        <p><b>08686868686</b></p>
+      </div>
+      <img src="doctors-placeholder.png" alt="Doctors" height="120">
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services-section">
+    <div class="service-item">
+      <h3>📞 Gọi tổng đài</h3>
+      <p>Đặt lịch khám nhanh qua tổng đài 1999.999.9999</p>
+    </div>
+    <a href="booking.html" style="text-decoration: none;">
+      <div class="service-item">
+        <h3>📅 Đặt lịch khám</h3>
+        <p>Đặt lịch khám online tại website</p>
+      </div>
+    </a>
+    <div class="service-item">
+      <h3>👨‍⚕️ Hỏi đáp cùng chuyên gia</h3>
+      <p>Giải đáp thắc mắc về sức khỏe</p>
+    </div>
+    <div class="service-item">
+      <h3>📑 Kết quả xét nghiệm</h3>
+      <p>Tra cứu kết quả xét nghiệm của bạn</p>
+    </div>
+  </section>
+
+  <!-- Chatbox -->
+  <div class="chat-toggle-button" id="chatToggleButton">
+    💬
+  </div>
+
+  <div class="chatbox" id="chatbox">
+    <div class="chat-header">
+      <div class="title">🤖 Tư vấn trực tuyến</div>
+      <div class="close-chat" id="closeChatBtn" style="cursor:pointer;">&times;</div>
+    </div>
+    <div class="chat-messages" id="messages">
+      <div class="msg bot"><strong>Hệ thống:</strong> Xin chào! Tôi có thể giúp gì cho bạn?</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Nhập tin nhắn..." />
+      <button id="sendBtn">Gửi</button>
+    </div>
+    <div class="chat-contact">
+      📞 <a href="tel:0868686868">Hotline</a> | 
+      💬 <a href="https://zalo.me/0868686868" target="_blank">Zalo</a> | 
+      ✉️ <a href="mailto:info@dhts.com">Email</a>
+    </div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    const chatToggleButton = document.getElementById('chatToggleButton');
+    const chatbox = document.getElementById('chatbox');
+    const closeChatBtn = document.getElementById('closeChatBtn');
+    const messages = document.getElementById('messages');
+    const userInput = document.getElementById('userInput');
+    const sendBtn = document.getElementById('sendBtn');
+
+    chatToggleButton.addEventListener('click', () => {
+      chatbox.style.display = 'flex';
+      chatToggleButton.style.display = 'none';
+    });
+
+    closeChatBtn.addEventListener('click', () => {
+      chatbox.style.display = 'none';
+      chatToggleButton.style.display = 'flex';
+    });
+
+    function appendMessage(text, who='bot') {
+      const d = document.createElement('div');
+      d.className = 'msg ' + (who==='user'?'user':'bot');
+      d.innerHTML = '<strong>' + (who==='user'?'Bạn':'AI') + ':</strong> ' + text;
+      messages.appendChild(d);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    async function sendMessage() {
+      const message = userInput.value.trim();
+      if (!message) return;
+      appendMessage(message, 'user');
+      userInput.value = '';
+      try {
+        const res = await fetch('http://localhost:5000/chat', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({ message })
+        });
+        const data = await res.json();
+        appendMessage(data.reply || 'Xin lỗi, không có phản hồi.');
+      } catch (err) {
+        appendMessage('Xin lỗi, không thể kết nối tới máy chủ.');
+      }
+    }
+    // Hàm hiển thị menu theo trạng thái đăng nhập
+  function renderAuthMenu() {
+    const authMenu = document.getElementById("authMenu");
+    const user = localStorage.getItem("currentUser");
+    if (user) {
+      authMenu.innerHTML = `
+        <span style="color:white; font-weight:bold;">Xin chào, ${user}</span> |
+        <a href="#" onclick="logout()" style="color:yellow;">Đăng xuất</a>
+      `;
+    } else {
+      authMenu.innerHTML = `<a href="login.html">Đăng nhập</a>`;
+    }
+  }
+
+  // Hàm đăng xuất
+  function logout() {
+    localStorage.removeItem("currentUser");
+    localStorage.removeItem("redirectAfterLogin");
+    renderAuthMenu();
+    alert("Bạn đã đăng xuất!");
+  }
+
+  // Hàm xử lý khi bấm đặt lịch
+  function goBooking() {
+    const user = localStorage.getItem("currentUser");
+    if (user) {
+      window.location.href = "booking.html";
+    } else {
+      localStorage.setItem("redirectAfterLogin", "booking.html");
+      window.location.href = "login.html";
+    }
+  }
+
+  // Gọi khi load trang
+  renderAuthMenu();
+    // kiểm tra đặt lịch khám nếu có tài khoản 
+    function goBooking() {
+    const user = localStorage.getItem("currentUser");
+    if (user) {
+      // Nếu đã login thì cho vào trang đặt lịch
+      window.location.href = "booking.html";
+    } else {
+      // Lưu lại ý định truy cập booking
+      localStorage.setItem("redirectAfterLogin", "booking.html");
+      // Chuyển sang login
+      window.location.href = "login.html";
+    }
+  }
+
+    sendBtn.addEventListener('click', sendMessage);
+    userInput.addEventListener('keydown', (e) => { if (e.key==='Enter') sendMessage(); });
+  </script>
+</body>
+</html>
